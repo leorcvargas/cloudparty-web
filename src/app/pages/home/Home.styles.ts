@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const HomePage = styled.div`
@@ -12,11 +13,38 @@ export const HomePage = styled.div`
 
 export const HomeTitle = styled.h1`
   font-family: Minercraftory;
+  margin: 0;
 `;
 
-export const ListContainer = styled.div`
+export const HomeHeader = styled.header`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+`;
+
+export const HomeNav = styled.nav`
+  display: flex;
+  justify-content: space-evenly;
+  font-size: white;
+  width: 100%;
+  margin-top: 32px;
+`;
+
+export const HomeNavLink = styled(Link)<{ active: number }>`
+  color: ${(props) => (props.active ? "yellow" : "#fff")}
+
+  &:hover {
+    color: gray;
+  }
+
+  &:visited {
+    color: ${(props) => (props.active ? "yellow" : "#fff")};
+    cursor: auto;
+    text-decoration: unset;
+  }
 `;
 
 export const HomeMain = styled.main`
@@ -24,4 +52,5 @@ export const HomeMain = styled.main`
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin: 32px;
 `;

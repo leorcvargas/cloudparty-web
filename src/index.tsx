@@ -1,9 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./app/App";
-import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import reportWebVitals from "./reportWebVitals";
+import Home from "./app/pages/home/Home";
+import "./index.css";
+import GameServerList from "./app/pages/home/gameServerList/GameServerList";
+import GameServerCreateForm from "./app/pages/home/GameServerCreateForm/GameServerCreateForm";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -11,7 +14,10 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />} />
+      <Route path="/" element={<Home />}>
+        <Route index element={<GameServerList />} />
+        <Route path='create' element={<GameServerCreateForm />} />
+      </Route>
     </Routes>
   </BrowserRouter>
 );

@@ -1,29 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React, { useMemo } from "react";
+import { Outlet, useLocation } from "react-router-dom";
 
-import { GameServer } from "../../../types/GameServer";
-import GameServerCard from "./components/gameServerCard/GameServerCard";
 import * as S from "./Home.styles";
 
 function Home() {
-  const [gameServers, setGameServers] = useState<GameServer[]>([]);
+  const location = useLocation();
 
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/api/game-server`)
-      .then((res) => res.json())
-      .then((data) => setGameServers(data));
+  const routes = useMemo(() => {
+    return [
+      { to: "/", name: "Servers" },
+      { to: "/create", name: "Create" },
+    ];
   }, []);
 
   return (
     <S.HomePage>
-      <header>
+      <S.HomeHeader>
         <S.HomeTitle>CloudParty</S.HomeTitle>
-      </header>
-      <S.HomeMain>
-        <S.ListContainer>
-          {gameServers.map((gameServer) => (
-            <GameServerCard key={gameServer.id} gameServer={gameServer} />
+
+        <S.HomeNav>
+          {routes.map((route) => (
+            <S.HomeNavLink
+              active={location.pathname === route.to ? 1 : 0}
+              key={route.to}
+              to={route.to}
+            >
+              {route.name}
+            </S.HomeNavLink>
           ))}
-        </S.ListContainer>
+        </S.HomeNav>
+      </S.HomeHeader>
+
+      <S.HomeMain>
+        <Outlet />
       </S.HomeMain>
     </S.HomePage>
   );

@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 
-import { GameServer } from "../../../../../types/GameServer";
+import { GameServer } from "../../../../../../types/GameServer";
 import minecraftIcon from "./minecraft-icon.png";
 import * as S from "./GameServerCard.styles";
 
