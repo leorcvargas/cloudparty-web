@@ -8,8 +8,8 @@ function Home() {
 
   const routes = useMemo(() => {
     return [
-      { to: "/", name: "Servers" },
-      { to: "/create", name: "Create" },
+      { to: "/", name: "Home" },
+      { to: "/create", name: "Create server" },
     ];
   }, []);
 

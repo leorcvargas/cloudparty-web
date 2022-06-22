@@ -4,7 +4,6 @@ export const Card = styled.div`
   display: flex;
   border: 1px solid #ffffff;
   padding: 10px 14px;
-  width: 400px;
   align-items: center;
 `;
 

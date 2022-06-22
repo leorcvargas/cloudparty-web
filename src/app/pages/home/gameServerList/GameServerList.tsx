@@ -19,7 +19,7 @@ function GameServerList() {
         <GameServerCard key={gameServer.id} gameServer={gameServer} />
       ))}
 
-      {!gameServers.length && <span>No servers found</span>}
+      {!gameServers.length && <S.Empty>No servers found</S.Empty>}
     </S.ListContainer>
   );
 }
