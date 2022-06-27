@@ -29,11 +29,6 @@ export const CardBody = styled.div``;
 
 export const CardHeaderTitle = styled.span``;
 
-export const GameServerStatusBadge = styled.div`
-  font-size: 0.75rem;
-  color: lime;
-`;
-
 export const GameServerAddress = styled.button`
   background: unset;
   border: unset;

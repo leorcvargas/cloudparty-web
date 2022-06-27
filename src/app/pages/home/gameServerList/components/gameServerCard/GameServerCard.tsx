@@ -3,6 +3,7 @@ import React, { useMemo } from "react";
 import { GameServer } from "../../../../../../types/GameServer";
 import minecraftIcon from "./minecraft-icon.png";
 import * as S from "./GameServerCard.styles";
+import GameServerStatus from "../gameServerStatus/GameServerStatus";
 
 type Props = { gameServer: GameServer };
 
@@ -25,7 +26,7 @@ function GameServerCard({ gameServer }: Props) {
       <S.CardColumn>
         <S.CardHeader>
           <S.CardHeaderTitle>{gameServer.name}</S.CardHeaderTitle>
-          <S.GameServerStatusBadge>&#9679; Online</S.GameServerStatusBadge>
+          <GameServerStatus gameServerId={gameServer.id} />
         </S.CardHeader>
 
         <S.CardBody>

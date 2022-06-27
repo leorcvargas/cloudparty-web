@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import { GameServer } from "../../../../types/GameServer";
 import GameServerCard from "./components/gameServerCard/GameServerCard";
@@ -7,11 +7,15 @@ import * as S from "./GameServerList.styles";
 function GameServerList() {
   const [gameServers, setGameServers] = useState<GameServer[]>([]);
 
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/api/game-server`)
-      .then((res) => res.json())
-      .then((data) => setGameServers(data));
+  const findGameServers = useCallback(async () => {
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/api/game-server`);
+    const data = await res.json();
+    setGameServers(data);
   }, []);
+
+  useEffect(() => {
+    findGameServers();
+  }, [findGameServers]);
 
   return (
     <S.ListContainer>

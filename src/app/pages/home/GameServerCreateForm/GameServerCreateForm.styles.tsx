@@ -29,4 +29,15 @@ export const SubmitButton = styled.button`
   background: transparent;
   color: #fff;
   border: 1px solid #fff;
+  cursor: pointer;
+
+  &:active {
+    color: yellow;
+    border: 1px solid yellow;
+  }
+
+  &:disabled {
+    color: gray;
+    border: 1px solid gray;
+  }
 `;
